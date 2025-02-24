@@ -9,7 +9,8 @@
         "balajidharma/laravel-admin-core": "^3.0",
         "balajidharma/laravel-crud": "^1.0",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "yajra/laravel-datatables-oracle": "^11.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

@@ -8,23 +8,43 @@
             <x-application-logo class="block h-9 w-auto fill-current" />Admin Panel
         </a>
     </li>
-    @foreach($menus as $menu)
+
+    <!-- Static menu data -->
+   
     <li>
-        <a href="{{ $menu['link'] }}" class="{{ (request()->is(ltrim($menu['link'], '/'))) ? 'active' : '' }}">
-            @if($menu['icon'])
-            <x-admin.base-icon path="{{$menu['icon']}}" />
-            @endif
-            {{ $menu['name'] }}
+        <a href="/admin" class="{{ request()->is('admin') ? 'active' : '' }}">
+            <span class="inline-flex justify-center items-center">
+                <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+                    <path fill="currentColor" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z"></path>
+                </svg>
+            </span>
+            Dashboard
         </a>
-        @isset($menu['children'])
-        <ul class="bg-base-100 p-2">
-            @foreach($menu['children'] as $child)
-            <li><a href="{{ $child['link'] }}" class="{{ (request()->is(ltrim($child['link'], '/'))) ? 'active' : '' }}">{{ $child['name'] }}</a></li>
-            @endforeach
-        </ul>
-        @endisset
+        <ul class="bg-base-100 p-2"></ul>
     </li>
-    @endforeach
+
+    <li>
+        <a href="/admin/user" class="{{ request()->is('admin/user') ? 'active' : '' }}">
+            <span class="inline-flex justify-center items-center">
+                <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+                    <path fill="currentColor" d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z"></path>
+                </svg>
+            </span>
+            Users
+        </a>
+        <ul class="bg-base-100 p-2"></ul>
+    </li>
+
+    <li>
+        <a href="/admin/payment" class="{{ request()->is('admin/payment') ? 'active' : '' }}">
+            <span class="inline-flex justify-center items-center">
+                <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+                    <path fill="currentColor" d="M21 7H3V5H21V7M21 17H3V9H21V17M19 14A1 1 0 1 0 17 14A1 1 0 0 0 19 14Z"></path>
+                </svg>
+            </span>
+            Payment
+        </a>
+        <ul class="bg-base-100 p-2"></ul>
+    </li>
 </ul>
 @endisset
-    
